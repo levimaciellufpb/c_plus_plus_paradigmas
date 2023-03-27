@@ -7,12 +7,12 @@ class Critter{
     public:
         Critter(int fome = 0, int tedio = 0);
         void Falar();
-        void Comer(int food = 4);
-        void Brincar(int fun = 4);
+        void Comer(int comida = 4);
+        void Brincar(int diversao = 4);
     
     private:
-        int fome;
-        int tedio;
+        int m_fome;
+        int m_tedio;
         
         //const evita que variáveis sejam alteradas
         int GetHumor() const;
@@ -22,23 +22,24 @@ class Critter{
 };
 
 Critter::Critter(int fome, int tedio):
-    fome(this->fome),
-    tedio(this->tedio)
+    m_fome(fome),
+    m_tedio(tedio)
     {}
 
 inline int Critter::GetHumor() const{
-    return (fome + tedio);
+    return (m_fome + m_tedio);
 }
 
 void Critter::PassarTempo(int tempo){
-    fome += tempo;
-    tedio += tempo;
+    m_fome += tempo;
+    m_tedio += tempo;
 }
 
 void Critter::Falar(){
     cout << "Sou um bichinho e me sinto ";
 
     int humor = GetHumor();
+    cout << GetHumor();
 
     if(humor > 15){
         cout << "com raiva.\n";
@@ -58,10 +59,10 @@ void Critter::Falar(){
 void Critter::Comer(int comida){
     cout << "Brruuuppp.\n" << endl;
 
-    fome -= comida;
+    m_fome = m_fome - comida;
 
-    if(fome < 0){
-        fome = 0;
+    if(m_fome < 0){
+        m_fome = 0;
     }
     PassarTempo();
 }
@@ -69,10 +70,10 @@ void Critter::Comer(int comida){
 void Critter::Brincar(int diversao){
     cout << "wheeeee" << endl;
 
-    tedio -= diversao;
+    m_tedio = m_tedio - diversao;
 
-    if(tedio < 0){
-        tedio = 0;
+    if(m_tedio < 0){
+        m_tedio = 0;
     }
 
     PassarTempo();
