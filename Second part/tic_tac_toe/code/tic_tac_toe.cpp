@@ -14,7 +14,7 @@ void instrucoes();
 char pecaHumano();
 char perguntarSimOuNao(string pergunta);
 char oponente(char peca);
-//void mostrarTabuleiro(const vector<char>* const pTabuleiro);
+void mostrarTabuleiro(const vector<char>* const pTabuleiro);
 
 
 int main(){
@@ -28,7 +28,7 @@ int main(){
     char humano = pecaHumano();
     char computador = oponente(humano);
     char turno = X;
-    //mostrarTabuleiro(&tabuleiro);
+    mostrarTabuleiro(&tabuleiro);
 
 }
 
@@ -85,9 +85,14 @@ char oponente(char peca){
     }
 }
 
-//void mostrarTabuleiro(const vector<char>* const pTabuleiro){
-//
-//}
+void mostrarTabuleiro(const vector<char>* const pTabuleiro){
+    cout << "\n\t" << (*pTabuleiro)[0] << " | " << (*pTabuleiro)[1] << " | " << (*pTabuleiro)[2];
+    cout << "\n\t" << "---------";
+    cout << "\n\t" << (*pTabuleiro)[3] << " | " << (*pTabuleiro)[4] << " | " << (*pTabuleiro)[5];
+    cout << "\n\t" << "---------";
+    cout << "\n\t" << (*pTabuleiro)[6] << " | " << (*pTabuleiro)[7] << " | " << (*pTabuleiro)[8];
+    cout << "\n\n";
+}
 
 
 
