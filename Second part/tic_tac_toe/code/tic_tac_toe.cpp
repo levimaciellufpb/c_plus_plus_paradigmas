@@ -15,6 +15,7 @@ char pecaHumano();
 char perguntarSimOuNao(string pergunta);
 char oponente(char peca);
 void mostrarTabuleiro(const vector<char>* const pTabuleiro);
+char vencedor(const vector<char>* const pTabuleiro);
 
 
 int main(){
@@ -94,5 +95,25 @@ void mostrarTabuleiro(const vector<char>* const pTabuleiro){
     cout << "\n\n";
 }
 
+char vencedor(const vector<char>* const pTabuleiro){
+    const int POSSIVEIS_VITORIAS[8][3] = {
+        {0,1,2},
+        {3,4,5},
+        {6,7,8},
+        {0,3,6},
+        {1,4,7},
+        {2,5,8},
+        {0,4,8},
+        {2,4,6}
+    };
 
+    const int TOTAL_COLUNAS = 8;
+
+    for(int linha = 0; linha <= TOTAL_COLUNAS; ++linha){
+
+        
+    }
+
+
+}
 
