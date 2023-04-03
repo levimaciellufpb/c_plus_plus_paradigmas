@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
 class Player{
     public:
-        Player(const string& nome);
+        Player(const string& nome = "");
         string GetNome() const;
         Player* GetProximo() const;
         void SetProximo(Player* proximo);
@@ -62,7 +63,8 @@ void Lobby::AddJogador(){
     cout << "Por favor, digite o nome do novo jogador: \n>>";
 
     string nome;
-    cin >> nome;
+    //cin >> nome;
+    getline(cin, nome);
 
     Player* pNovoJogador = new Player(nome);
 
@@ -76,7 +78,7 @@ void Lobby::AddJogador(){
         Player* pIter = m_pCabeca;
 
         while (pIter->GetProximo() != 0)
-        {
+        {   
             pIter = pIter->GetProximo();
         }
 
@@ -138,6 +140,10 @@ int main(){
 
         cout << "Digite sua opção:\n>>";
         cin >> escolha;
+
+        //Código para evitar loop infinito
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         switch(escolha){
             
