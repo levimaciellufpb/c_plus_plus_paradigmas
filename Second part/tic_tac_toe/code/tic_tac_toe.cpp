@@ -238,7 +238,7 @@ int movimentoCPU(vector<char> tabuleiro, char computador){
 }
 
 void anunciarVencedor(char vencedor, char computador, char humano){
-    if(vencedor = computador){
+    if(vencedor == computador){
         cout << "O vencedor foi: " << vencedor << endl;
         cout << "Não fique triste, humano. Era óbvio que iria ganhar\n";
         cout << "Isso só prova que computadores são superiores aos humanos em todos aspectos\n";
